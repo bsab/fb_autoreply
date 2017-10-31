@@ -50,15 +50,13 @@ try:
     DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window; you may, of course, use a different value.
-    REGISTRATION_AUTO_LOGIN = True  # Automatically log the user in.
 
 
 except Exception as e:
     #
     # DEV CONFIGURATION
     #
-    SECRET_KEY = 'cr8(rahmzqzdn*yc7u9bcq5$@^=y@t6(@8e_rr783(ef=8_(y9'
+    SECRET_KEY = 'cr8(rahmzqzdn*yc7u9bcq5$@^=y@t6(@8e_rr783(ef=1_(y9'
 
     DATABASE_PATH = os.path.join(BASE_DIR, 'octogram.db')
     DATABASES['default'] =  dj_database_url.config(default='sqlite:///'+DATABASE_PATH)
@@ -70,3 +68,6 @@ except Exception as e:
     EMAIL_USE_TLS = False
     DEFAULT_FROM_EMAIL = 'testing@example.com'
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = True  # Automatically log the user in.
