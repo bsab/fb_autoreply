@@ -53,18 +53,6 @@ INSTALLED_APPS = [
     'rest_framework'
 ]
 
-#################################################
-#                EMAIL CONFIGURATION            #
-#################################################
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'octogrambot@gmail.com'
-EMAIL_HOST_PASSWORD = 'Oct0Gr4m'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'octogrambot@gmail.com'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
-REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

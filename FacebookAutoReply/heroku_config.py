@@ -39,6 +39,21 @@ try:
 
     IS_HEROKU_ENV=True
 
+    #################################################
+    #                EMAIL CONFIGURATION            #
+    #################################################
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+    EMAIL_USE_TLS = True
+    DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window; you may, of course, use a different value.
+    REGISTRATION_AUTO_LOGIN = True  # Automatically log the user in.
+
+
 except Exception as e:
     #
     # DEV CONFIGURATION
@@ -47,3 +62,11 @@ except Exception as e:
 
     DATABASE_PATH = os.path.join(BASE_DIR, 'octogram.db')
     DATABASES['default'] =  dj_database_url.config(default='sqlite:///'+DATABASE_PATH)
+
+    EMAIL_HOST = 'localhost'
+    EMAIL_PORT = 1025
+    EMAIL_HOST_USER = ''
+    EMAIL_HOST_PASSWORD = ''
+    EMAIL_USE_TLS = False
+    DEFAULT_FROM_EMAIL = 'testing@example.com'
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
